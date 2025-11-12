@@ -19,7 +19,6 @@ body {
     overflow: auto;
 }
 
-/* MAIN WINDOW */
 .xp-wrapper {
     position: relative;
     width: 100%;
@@ -42,7 +41,7 @@ body {
     color: white;
 }
 
-/* LEFT SIDE */
+
 .left-side {
     flex: 1;
     display: flex;
@@ -51,19 +50,26 @@ body {
     justify-content: center;
     text-align: center;
     padding-right: 2rem;
-
-    border-right: 1px solid transparent;
-
-    background-image: linear-gradient(to bottom,
-        transparent,
-        rgba(255,255,255,0.4) 50%,
-        transparent);
-    background-size: 1px 100%;
-    background-repeat: no-repeat;
-    background-position: right center;
+    position: relative;
 }
 
-/* RIGHT SIDE USERS */
+
+.left-side::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: -50%;
+    bottom: -50%;
+    width: 1px;
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(255,255,255,0.65),
+        transparent
+    );
+}
+
+
 .right-side {
     flex: 1;
     display: flex;
@@ -73,7 +79,7 @@ body {
     gap: 1.2rem;
 }
 
-/* USER BOXES */
+
 .user-box,
 .other-user-box {
     position: relative;
@@ -90,7 +96,6 @@ body {
     max-width: 430px;
 }
 
-/* BORDER FADE */
 .user-box::before,
 .other-user-box::before {
     content: "";
@@ -109,7 +114,7 @@ body {
         rgba(0,0,0,0) 100%);
 }
 
-/* AVATARS */
+
 .avatar {
     width: 58px;
     height: 58px;
@@ -126,7 +131,7 @@ body {
     background: url('https://via.placeholder.com/58?text=?') center/cover;
 }
 
-/* LOGIN BUTTON */
+
 .green-btn {
     height: 22px;
     width: 22px;
@@ -140,11 +145,9 @@ body {
     font-size: 1.3rem;
     color: white;
     font-weight: 700;
-    font-family: Tahoma;
-    margin-top: 4px;
 }
 
-/* HELP BUTTON */
+
 .help-btn {
     height: 22px;
     width: 22px;
@@ -157,10 +160,9 @@ body {
     font-weight: bold;
     font-size: 1rem;
     cursor: pointer;
-    margin-top: 4px;
 }
 
-/* FOOTER */
+
 .footer-bar {
     position: fixed;
     bottom: 0;
@@ -191,7 +193,7 @@ body {
         transparent);
 }
 
-/* POWER ICON */
+
 .power {
     display: flex;
     align-items: center;
@@ -212,7 +214,7 @@ body {
     box-shadow: inset 0 0 0 1px rgba(0,0,0,.15);
 }
 
-/* TOP BAR */
+
 .top-bar {
     position: fixed;
     top: 0;
