@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<script src="../encryption.js"></script>
+<script src="login.js"></script>
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>its-luke.com</title>
   <link rel="stylesheet" href="login.css" />
 </head>
+
 <body>
   <div class="top-bar"></div>
 
@@ -24,7 +29,7 @@
 
       <div class="right-side">
 
-        <!-- LUKE -->
+      
         <div class="xp-user" data-user="luke">
           <div class="user-card luke-box">
             <div class="avatar avatar-luke"></div>
@@ -42,7 +47,7 @@
           </div>
         </div>
 
-        <!-- AMINA -->
+       
         <div class="xp-user" data-user="amina">
           <div class="user-card amina-box">
             <div class="other-avatar avatar-amina"></div>
@@ -60,7 +65,7 @@
           </div>
         </div>
 
-        <!-- JOHN -->
+       
         <div class="xp-user" data-user="john">
           <div class="user-card">
             <div class="other-avatar avatar-john"></div>
@@ -78,7 +83,7 @@
           </div>
         </div>
 
-        <!-- ALFIE -->
+        
         <div class="xp-user" data-user="alfie">
           <div class="user-card">
             <div class="other-avatar avatar-alfie"></div>
@@ -96,7 +101,7 @@
           </div>
         </div>
 
-        <!-- CALLUM -->
+       
         <div class="xp-user" data-user="callum">
           <div class="user-card">
             <div class="other-avatar avatar-callum"></div>
@@ -143,3 +148,30 @@
   </script>
 </body>
 </html>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const users = document.querySelectorAll(".xp-user");
+
+    users.forEach(user => {
+        user.addEventListener("click", () => {
+            users.forEach(u => u.classList.remove("active"));
+            user.classList.add("active");
+        });
+    });
+
+    
+    document.querySelectorAll(".green-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+            const active = document.querySelector(".xp-user.active");
+            if (!active) return;
+
+            const username = active.dataset.user.toLowerCase();
+            sessionStorage.setItem("loggedInUser", username);
+
+            window.location.href = "../DESKTOP/desktop.html";
+        });
+    });
+});
+</script>
+

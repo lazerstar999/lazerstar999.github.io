@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windows XP Desktop</title>
+    <h1>WORK IN PROGRESS</h1>
+
+    <link rel="stylesheet" href="desktop.css">
+</head>
+
+<body>
+
+
+    <div class="start-menu" id="startMenu"></div>
+
+   
+    <div class="taskbar">
+        <div class="start-btn" id="startBtn"></div>
+    </div>
+
+    <script>
+        
+        const user = sessionStorage.getItem("loggedInUser");
+
+        const startBtn = document.getElementById("startBtn");
+        const startMenu = document.getElementById("startMenu");
+
+        startBtn.addEventListener("click", () => {
+            startMenu.style.display =
+                startMenu.style.display === "flex" ? "none" : "flex";
+        });
+    </script>
+
+</body>
+</html>
