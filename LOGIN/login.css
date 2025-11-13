@@ -140,7 +140,7 @@ body {
     height: 58px;
     border: 2px solid #ffcc19;
     border-radius: 6px;
-    background: url('fish_icon.png') center/cover;
+    background: url('../PNG/fish_icon.png') center/cover;
 }
 
 .other-avatar {
@@ -148,7 +148,7 @@ body {
     height: 58px;
     border: 2px solid white;
     border-radius: 6px;
-    background: url('flower_icon.png') center/cover;
+    background: url('../PNG/flower_icon.png') center/cover;
     box-shadow: 0 0 6px rgba(0,0,0,0.50);
 }
 
