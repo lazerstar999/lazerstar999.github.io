@@ -40,7 +40,7 @@ body {
     top: 3px;
     animation: xpMove 2.5s steps(5) infinite;
 }
-
+ 
 .sq {
     width: 14px;
     height: 10px;
