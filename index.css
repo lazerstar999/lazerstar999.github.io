@@ -76,8 +76,7 @@ body {
     gap: 1.2rem;
 }
 
-.user-box,
-.other-user-box {
+.user-box {
     position: relative;
     padding: 1.1rem;
     border-radius: 0.8rem;
@@ -88,8 +87,20 @@ body {
     overflow: hidden;
 }
 
-.user-box::before,
-.other-user-box::before {
+.other-user-box {
+    position: relative;
+    padding: 0;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    max-width: 430px;
+    background: none;
+    border: none;
+    overflow: visible;
+}
+
+.user-box::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -114,20 +125,22 @@ body {
     z-index: 1;
 }
 
+.other-user-box::before {
+    content: none;
+}
+
 .user-box > *,
 .other-user-box > * {
     position: relative;
     z-index: 2;
 }
 
-
-
 .avatar {
     width: 58px;
     height: 58px;
     border: 2px solid #ffcc19;
     border-radius: 6px;
-    background: url('https://via.placeholder.com/58') center/cover;
+    background: url('fish_icon.png') center/cover;
 }
 
 .other-avatar {
@@ -135,7 +148,8 @@ body {
     height: 58px;
     border: 2px solid white;
     border-radius: 6px;
-    background: url('https://via.placeholder.com/58?text=?') center/cover;
+    background: url('flower_icon.png') center/cover;
+    box-shadow: 0 0 6px rgba(0,0,0,0.50);
 }
 
 .green-btn {
@@ -240,3 +254,16 @@ body {
         #ffffff 65%,
         transparent);
 }
+
+.amina-name {
+    position: relative;
+    top: -18px;  
+    left: 17px; 
+}
+
+.other-avatar {
+    position: relative;
+    top: 5px;   
+    left: 16px;  
+}
+
