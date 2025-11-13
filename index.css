@@ -41,7 +41,6 @@ body {
     color: white;
 }
 
-
 .left-side {
     flex: 1;
     display: flex;
@@ -52,7 +51,6 @@ body {
     padding-right: 2rem;
     position: relative;
 }
-
 
 .left-side::after {
     content: "";
@@ -69,7 +67,6 @@ body {
     );
 }
 
-
 .right-side {
     flex: 1;
     display: flex;
@@ -79,21 +76,16 @@ body {
     gap: 1.2rem;
 }
 
-
 .user-box,
 .other-user-box {
     position: relative;
-    background: linear-gradient(to right,
-        rgba(15,63,151,0.85),
-        rgba(15,63,151,0)
-    );
     padding: 1.1rem;
     border-radius: 0.8rem;
-    border: 1px solid transparent;
     display: flex;
     align-items: center;
     gap: 1rem;
     max-width: 430px;
+    overflow: hidden;
 }
 
 .user-box::before,
@@ -102,17 +94,32 @@ body {
     position: absolute;
     inset: 0;
     border-radius: 0.8rem;
-    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.35);
+    background:
+        linear-gradient(to right,
+            rgba(15,63,151,0.85),
+            rgba(15,63,151,0)
+        ),
+        rgb(15,63,151);
+    border: 1px solid rgba(255,255,255,0.35);
+    background-clip: padding-box;
+    mask-image: linear-gradient(to right,
+        rgba(0,0,0,1) 0%,
+        rgba(0,0,0,1) 20%,
+        rgba(0,0,0,0) 100%);
+    -webkit-mask-image: linear-gradient(to right,
+        rgba(0,0,0,1) 0%,
+        rgba(0,0,0,1) 20%,
+        rgba(0,0,0,0) 100%);
     pointer-events: none;
-    -webkit-mask: linear-gradient(to right,
-        rgba(0,0,0,1) 0%,
-        rgba(0,0,0,1) 99%,
-        rgba(0,0,0,0) 100%);
-    mask: linear-gradient(to right,
-        rgba(0,0,0,1) 0%,
-        rgba(0,0,0,1) 99%,
-        rgba(0,0,0,0) 100%);
+    z-index: 1;
 }
+
+.user-box > *,
+.other-user-box > * {
+    position: relative;
+    z-index: 2;
+}
+
 
 
 .avatar {
@@ -131,7 +138,6 @@ body {
     background: url('https://via.placeholder.com/58?text=?') center/cover;
 }
 
-
 .green-btn {
     height: 22px;
     width: 22px;
@@ -142,11 +148,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.3rem;
+    font-size: 1.0rem;
     color: white;
     font-weight: 700;
 }
-
 
 .help-btn {
     height: 22px;
@@ -162,7 +167,6 @@ body {
     cursor: pointer;
 }
 
--- ert
 .footer-bar {
     position: fixed;
     bottom: 0;
@@ -193,7 +197,6 @@ body {
         transparent);
 }
 
-
 .power {
     display: flex;
     align-items: center;
@@ -213,7 +216,6 @@ body {
     color: white;
     box-shadow: inset 0 0 0 1px rgba(0,0,0,.15);
 }
-
 
 .top-bar {
     position: fixed;
