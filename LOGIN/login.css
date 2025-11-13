@@ -1,5 +1,5 @@
 body, * {
-    font-family: "Lucida Console"," monospace";
+    font-family: "Lucida Console", monospace;
     letter-spacing: 0.2px;
     -webkit-font-smoothing: none;
     font-smooth: never;
@@ -72,11 +72,16 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left: 2rem;
-    gap: 1.2rem;
+
+    gap: 0.6rem;
+    padding-left: 3rem;
 }
 
-.user-box {
+.xp-user {
+    cursor: pointer;
+}
+
+.user-card {
     position: relative;
     padding: 1.1rem;
     border-radius: 0.8rem;
@@ -85,22 +90,21 @@ body {
     gap: 1rem;
     max-width: 430px;
     overflow: hidden;
+    transform-origin: left center;
+    filter: brightness(0.78);
+    transition: transform 0.12s ease-out, filter 0.12s ease-out;
 }
 
-.other-user-box {
-    position: relative;
-    padding: 0;
-    border-radius: 0;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    max-width: 430px;
-    background: none;
-    border: none;
-    overflow: visible;
+.xp-user:hover .user-card {
+    transform: scale(1.05);
+    filter: brightness(1);
 }
 
-.user-box::before {
+.xp-user.active .user-card {
+    filter: brightness(1);
+}
+
+.xp-user.active .user-card::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -117,39 +121,93 @@ body {
         rgba(0,0,0,1) 0%,
         rgba(0,0,0,1) 20%,
         rgba(0,0,0,0) 100%);
-    -webkit-mask-image: linear-gradient(to right,
-        rgba(0,0,0,1) 0%,
-        rgba(0,0,0,1) 20%,
-        rgba(0,0,0,0) 100%);
     pointer-events: none;
     z-index: 1;
 }
 
-.other-user-box::before {
-    content: none;
-}
-
-.user-box > *,
-.other-user-box > * {
+.user-card > * {
     position: relative;
     z-index: 2;
 }
 
-.avatar {
-    width: 58px;
-    height: 58px;
-    border: 2px solid #ffcc19;
-    border-radius: 6px;
-    background: url('../PNG/fish_icon.png') center/cover;
-}
-
+.avatar,
 .other-avatar {
     width: 58px;
     height: 58px;
     border: 2px solid white;
     border-radius: 6px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.6);
+}
+
+.avatar {
+    background: url('../PNG/fish_icon.png') center/cover;
+}
+
+.other-avatar {
     background: url('../PNG/flower_icon.png') center/cover;
-    box-shadow: 0 0 6px rgba(0,0,0,0.50);
+}
+
+
+
+.avatar-luke {
+    background: url('../PNG/fish_icon.png') center/cover !important;
+}
+
+.avatar-amina {
+    background: url('../PNG/flower_icon.png') center/cover !important;
+}
+
+.avatar-john {
+    background: url('../PNG/chess.png') center/cover !important;
+}
+
+.avatar-alfie {
+    background: url('../PNG/space.png') center/cover !important;
+}
+
+.avatar-callum {
+    background: url('../PNG/skull.png') center/cover !important;
+}
+
+
+
+.xp-user.active .avatar,
+.xp-user.active .other-avatar {
+    border-color: #ffcc19 !important;
+    box-shadow: none;
+}
+
+.user-info .name {
+    font-weight: 700;
+    font-size: 1.05rem;
+}
+
+.password-area {
+    display: none;
+    margin-top: 0.2rem;
+}
+
+.password-label {
+    margin-bottom: 0.1rem;
+}
+
+.password-row {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.password-row input[type="password"] {
+    flex: 1;
+    padding: 2px 4px;
+    border-radius: 2px;
+    border: none;
+    font-family: inherit;
+    font-size: 0.9rem;
+}
+
+.xp-user.active .password-area {
+    display: block;
 }
 
 .green-btn {
@@ -254,16 +312,3 @@ body {
         #ffffff 65%,
         transparent);
 }
-
-.amina-name {
-    position: relative;
-    top: -18px;  
-    left: 17px; 
-}
-
-.other-avatar {
-    position: relative;
-    top: 5px;   
-    left: 16px;  
-}
-
