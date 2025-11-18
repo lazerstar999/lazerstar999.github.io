@@ -1,0 +1,312 @@
+body, * {
+    font-family: "Lucida Console", monospace;
+    letter-spacing: 0.2px;
+    -webkit-font-smoothing: none;
+    font-smooth: never;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    background: #3B77BC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+}
+
+.xp-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top left,
+        rgba(255, 255, 255, 0.55) 0%,
+        rgba(255, 255, 255, 0) 30%
+    ), #4866C0;
+}
+
+.xp-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80vw;
+    max-width: 1200px;
+    display: flex;
+    padding: 2rem 0;
+    color: white;
+}
+
+.left-side {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-right: 2rem;
+    position: relative;
+}
+
+.left-side::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: -50%;
+    bottom: -50%;
+    width: 1px;
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(255,255,255,0.65),
+        transparent
+    );
+}
+
+.right-side {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    gap: 0.6rem;
+    padding-left: 3rem;
+}
+
+.xp-user {
+    cursor: pointer;
+}
+
+.user-card {
+    position: relative;
+    padding: 1.1rem;
+    border-radius: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    max-width: 430px;
+    overflow: hidden;
+    transform-origin: left center;
+    filter: brightness(0.78);
+    transition: transform 0.12s ease-out, filter 0.12s ease-out;
+}
+
+.xp-user:hover .user-card {
+    transform: scale(1.05);
+    filter: brightness(1);
+}
+
+.xp-user.active .user-card {
+    filter: brightness(1);
+}
+
+.xp-user.active .user-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 0.8rem;
+    background:
+        linear-gradient(to right,
+            rgba(15,63,151,0.85),
+            rgba(15,63,151,0)
+        ),
+        rgb(15,63,151);
+    border: 1px solid rgba(255,255,255,0.35);
+    background-clip: padding-box;
+    mask-image: linear-gradient(to right,
+        rgba(0,0,0,1) 0%,
+        rgba(0,0,0,1) 20%,
+        rgba(0,0,0,0) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.user-card > * {
+    position: relative;
+    z-index: 2;
+}
+
+.avatar,
+.other-avatar {
+    width: 58px;
+    height: 58px;
+    border: 2px solid white;
+    border-radius: 6px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.6);
+}
+
+.avatar {
+    background: url('../PNG/fish_icon.png') center/cover;
+}
+
+.other-avatar {
+    background: url('../PNG/flower_icon.png') center/cover;
+}
+
+.avatar-luke {
+    background: url('../PNG/fish_icon.png') center/cover !important;
+}
+
+.avatar-amina {
+    background: url('../PNG/flower_icon.png') center/cover !important;
+}
+
+.avatar-john {
+    background: url('../PNG/chess.png') center/cover !important;
+}
+
+.avatar-alfie {
+    background: url('../PNG/space.png') center/cover !important;
+}
+
+.avatar-callum {
+    background: url('../PNG/skull.png') center/cover !important;
+}
+
+
+
+.xp-user.active .avatar,
+.xp-user.active .other-avatar {
+    border-color: #ffcc19 !important;
+    box-shadow: none;
+}
+
+.user-info .name {
+    font-weight: 700;
+    font-size: 1.05rem;
+}
+
+.password-area {
+    display: none;
+    margin-top: 0.2rem;
+}
+
+.password-label {
+    margin-bottom: 0.1rem;
+}
+
+.password-row {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.password-row input[type="password"] {
+    flex: 1;
+    padding: 2px 4px;
+    border-radius: 2px;
+    border: none;
+    font-family: inherit;
+    font-size: 0.9rem;
+}
+
+.xp-user.active .password-area {
+    display: block;
+}
+
+.green-btn {
+    height: 22px;
+    width: 22px;
+    background: #3cb043;
+    border: 1.2px solid white;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.0rem;
+    color: white;
+    font-weight: 700;
+}
+
+.help-btn {
+    height: 22px;
+    width: 22px;
+    background: linear-gradient(#bcd0ff, #4a73dc);
+    border: 1.2px solid white;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.footer-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 90px;
+    background: #0f3f97;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    color: white;
+    font-size: 0.85rem;
+    z-index: 998;
+}
+
+.footer-bar::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg,
+        transparent,
+        #e59b17 35%,
+        #e59b17 65%,
+        transparent);
+}
+
+.power {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.power-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 4px;
+    background: linear-gradient(180deg,#ff7a7a,#c62828);
+    border: 2px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: white;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,.15);
+}
+
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90px;
+    background: #0f3f97;
+    z-index: 999;
+}
+
+.top-bar::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg,
+        transparent,
+        #ffffff 35%,
+        #ffffff 65%,
+        transparent);
+}

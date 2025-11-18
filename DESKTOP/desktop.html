@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- WIP, REREMBER TO REMOVE AFTER -->
+    <div class="wip-banner">🚧 Work in Progress V15.5 🚧</div>
+<!-- WIP, REREMBER TO REMOVE AFTER -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windows XP Desktop</title>
+    <link rel="stylesheet" href="desktop.css">
+</head>
+
+<body>
+
+   
+    <div class="start-menu" id="startMenu">
+        <div class="sm-frame">
+
+            
+            <div class="sm-user-bar">
+                <img id="smUserPic" class="sm-user-pic">
+                <div id="smUserName" class="sm-user-name">User</div>
+            </div>
+
+           
+            <div class="sm-body">
+
+               
+                <div class="sm-left">
+
+                    <div class="sm-section-title">Internet</div>
+                    <button class="sm-app">
+                        <img src="../PNG/icon_ie.png" class="sm-app-icon icon-ie">
+                        <span class="label-ie">Internet Explorer</span>
+                    </button>
+
+                    <div class="sm-section-title">E-mail</div>
+                    <button class="sm-app">
+                        <img src="../PNG/icon_email.png" class="sm-app-icon icon-email">
+                        <span class="label-email">Outlook Express</span>
+                    </button>
+
+                    <div class="sm-divider"></div>
+
+                    <button class="sm-app">
+                        <img src="../PNG/icon_paint.png" class="sm-app-icon icon-paint">
+                        <span class="label-paint">Paint</span>
+                    </button>
+
+                    <button class="sm-app">
+                        <img src="../PNG/icon_wordpad.png" class="sm-app-icon icon-wordpad">
+                        <span class="label-wordpad">WordPad</span>
+                    </button>
+
+                    <div class="sm-left-bottom">
+                        <div class="sm-all-programs-static">
+                            <span class="label-allprograms">All Programs &#9658;</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                
+                <div class="sm-right">
+
+                    <button class="sm-link">
+                        <img src="../PNG/icon_mydocs.png" class="sm-link-icon icon-mydocs">
+                        <span class="label-mydocs">My Documents</span>
+                    </button>
+
+                    <button class="sm-link">
+                        <img src="../PNG/icon_mypics.png" class="sm-link-icon icon-mypics">
+                        <span class="label-mypics">My Pictures</span>
+                    </button>
+
+                    <button class="sm-link">
+                        <img src="../PNG/icon_mymusic.png" class="sm-link-icon icon-mymusic">
+                        <span class="label-mymusic">My Music</span>
+                    </button>
+
+                    <button class="sm-link">
+                        <img src="../PNG/icon_mycomputer.png" class="sm-link-icon icon-mycomputer">
+                        <span class="label-mycomputer">My Computer</span>
+                    </button>
+
+                    <div class="sm-right-divider"></div>
+
+                    
+
+                    <button class="sm-link">
+                        <img src="../PNG/icon_controlpanel.png" class="sm-link-icon icon-controlpanel">
+                        <span class="label-controlpanel">Control Panel</span>
+                    </button>
+
+                    <button class="sm-link">
+                        <img src="../PNG/icon_help.png" class="sm-link-icon icon-help">
+                        <span class="label-help">Help and Support</span>
+                    </button>
+
+                    <button class="sm-link">
+                        <img src="../PNG/icon_search.png" class="sm-link-icon icon-search">
+                        <span class="label-search">Search</span>
+                    </button>
+
+                    <button class="sm-link">
+                        <img src="../PNG/icon_run.png" class="sm-link-icon icon-run">
+                        <span class="label-run">Run...</span>
+                    </button>
+
+                </div>
+
+            </div>
+
+            
+            <div class="sm-footer">
+
+                <button class="sm-power-btn sm-logoff">
+                    <span class="label-logoff">Log Off</span>
+                </button>
+
+                <button class="sm-power-btn sm-shutdown">
+                    <span class="label-shutdown">Turn Off Computer</span>
+                </button>
+
+            </div>
+
+        </div>
+    </div>
+
+    
+    <div class="taskbar">
+        <div class="start-btn" id="startBtn"></div>
+        <div class="taskbar-center"></div>
+
+        <div class="system-tray">
+            <button class="tray-arrow"></button>
+            <img src="../PNG/icon_tray_network.png" class="tray-icon">
+            <img src="../PNG/icon_tray_volume.png" class="tray-icon">
+            <div class="tray-clock" id="trayClock"></div>
+        </div>
+    </div>
+
+    <script>
+       
+        const user = sessionStorage.getItem("loggedInUser") || "User";
+
+        const names = {
+            luke: "Luke",
+            amina: "Amina",
+            john: "John",
+            alfie: "Alfie",
+            callum: "Callum"
+        };
+
+        const pfps = {
+            luke: "../PNG/fish_icon.png",
+            amina: "../PNG/flower_icon.png",
+            john: "../PNG/skull.png",
+            alfie: "../PNG/space.png",
+            callum: "../PNG/chess.png"
+        };
+
+        document.getElementById("smUserName").textContent = names[user] || user;
+        document.getElementById("smUserPic").src = pfps[user] || "../PNG/fish_icon.png";
+
+        
+        const startBtn = document.getElementById("startBtn");
+        const startMenu = document.getElementById("startMenu");
+
+        startBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            startMenu.style.display =
+                startMenu.style.display === "flex" ? "none" : "flex";
+        });
+
+        document.addEventListener("click", () => {
+            startMenu.style.display = "none";
+        });
+
+        startMenu.addEventListener("click", (e) => {
+            e.stopPropagation();
+        });
+
+        
+        function updateClock() {
+            const now = new Date();
+            const time = now.toLocaleTimeString("en-US", {
+                hour: "numeric",
+                minute: "2-digit",
+                hour12: true
+            });
+            document.getElementById("trayClock").textContent = time;
+        }
+        updateClock();
+        setInterval(updateClock, 1000);
+    </script>
+
+</body>
+</html>

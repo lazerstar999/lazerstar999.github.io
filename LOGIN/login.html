@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<script src="../encryption.js"></script>
+<script src="login.js"></script>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>its-luke.com</title>
+  <link rel="stylesheet" href="login.css" />
+</head>
+
+<body>
+  <div class="top-bar"></div>
+
+  <div class="xp-wrapper">
+    <div class="xp-center">
+
+      <div class="left-side">
+        <img class="logo" src="../PNG/XP.png"
+             alt="Windows XP"
+             style="width:220px; margin-right:-250px; transform:translateY(-10px);" />
+
+        <div style="font-size:1.5rem; transform:translateY(5px); margin-right:50px; white-space:nowrap;">
+          To begin, click your user name
+        </div>
+      </div>
+
+      <div class="right-side">
+
+      
+        <div class="xp-user" data-user="luke">
+          <div class="user-card luke-box">
+            <div class="avatar avatar-luke"></div>
+            <div class="user-info">
+              <div class="name">Luke</div>
+              <div class="password-area">
+                <div class="password-label">Type your password</div>
+                <div class="password-row">
+                  <input type="password" />
+                  <div class="green-btn">&#x27A1;</div>
+                  <div class="help-btn">?</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+       
+        <div class="xp-user" data-user="amina">
+          <div class="user-card amina-box">
+            <div class="other-avatar avatar-amina"></div>
+            <div class="user-info">
+              <div class="name">Amina</div>
+              <div class="password-area">
+                <div class="password-label">Type your password</div>
+                <div class="password-row">
+                  <input type="password" />
+                  <div class="green-btn">&#x27A1;</div>
+                  <div class="help-btn">?</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+       
+        <div class="xp-user" data-user="john">
+          <div class="user-card">
+            <div class="other-avatar avatar-john"></div>
+            <div class="user-info">
+              <div class="name">John</div>
+              <div class="password-area">
+                <div class="password-label">Type your password</div>
+                <div class="password-row">
+                  <input type="password" />
+                  <div class="green-btn">&#x27A1;</div>
+                  <div class="help-btn">?</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="xp-user" data-user="alfie">
+          <div class="user-card">
+            <div class="other-avatar avatar-alfie"></div>
+            <div class="user-info">
+              <div class="name">Alfie</div>
+              <div class="password-area">
+                <div class="password-label">Type your password</div>
+                <div class="password-row">
+                  <input type="password" />
+                  <div class="green-btn">&#x27A1;</div>
+                  <div class="help-btn">?</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+       
+        <div class="xp-user" data-user="callum">
+          <div class="user-card">
+            <div class="other-avatar avatar-callum"></div>
+            <div class="user-info">
+              <div class="name">Callum</div>
+              <div class="password-area">
+                <div class="password-label">Type your password</div>
+                <div class="password-row">
+                  <input type="password" />
+                  <div class="green-btn">&#x27A1;</div>
+                  <div class="help-btn">?</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <div class="power">
+        <div class="power-icon">&#x23FB;</div>
+        Turn off computer
+      </div>
+
+      <div class="help-text" style="text-align:left; margin:0 2rem 0 0;">
+        After you log on, you can add or change accounts.<br/>
+        Just go to your Control Panel and click User Accounts.
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const users = document.querySelectorAll('.xp-user');
+
+    users.forEach(user => {
+      user.addEventListener('click', () => {
+        users.forEach(u => u.classList.remove('active'));
+        user.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const users = document.querySelectorAll(".xp-user");
+
+    users.forEach(user => {
+        user.addEventListener("click", () => {
+            users.forEach(u => u.classList.remove("active"));
+            user.classList.add("active");
+        });
+    });
+
+    
+    document.querySelectorAll(".green-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+            const active = document.querySelector(".xp-user.active");
+            if (!active) return;
+
+            const username = active.dataset.user.toLowerCase();
+            sessionStorage.setItem("loggedInUser", username);
+
+            window.location.href = "../DESKTOP/desktop.html";
+        });
+    });
+});
+</script>
+

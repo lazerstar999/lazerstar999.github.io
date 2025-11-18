@@ -1,0 +1,86 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: black;
+    font-family: "Lucida Console", monospace;
+    color: white;
+}
+
+.boot-wrapper {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.boot-logo {
+    width: 420px;
+
+    margin-bottom: 45px;
+}
+
+.loading-bar {
+    width: 160px;
+    height: 18px;
+    border: 1px solid #4a4a4a;
+    background: #000;
+    position: relative;
+    overflow: hidden;
+
+    margin-top: -50px;
+
+    border-radius: 4px;
+}
+
+.block-group {
+    display: flex;
+    gap: 3px;
+    position: absolute;
+    left: -55px;
+    top: 3px;
+    animation: xpMove 2.5s steps(5) infinite;
+}
+ 
+
+.sq {
+    width: 8px;
+    height: 10px;
+    border-radius: 2px;
+
+   background: linear-gradient(
+    to bottom,
+    rgba(27, 44, 255, 0.05),
+    rgba(27, 44, 255, 1),
+    rgba(27, 44, 255, 0.05)
+);
+
+}
+
+
+@keyframes xpMove {
+    0%   { left: -55px; }
+    20%  { left: 0px; }
+    40%  { left: 55px; }
+    60%  { left: 110px; }
+    80%  { left: 160px; }
+    100% { left: 260px; }
+}
+
+.boot-bottom-left {
+    position: fixed;
+    bottom: 10px;
+    left: 20px;
+    opacity: 0.75;
+    font-size: 20px;
+}
+
+.boot-bottom-right {
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+    opacity: 0.75;
+    font-size: 20px;
+}
